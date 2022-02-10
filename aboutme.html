@@ -46,8 +46,33 @@ My least fovrite part of the movie is where Maui, voiced by the rock, can't swim
     <td>Bearcat Arena</td>
     <td>$175</td>
 </tr>
-
 </table>
+
+<hr /> 
+<h2>Algorithm</h2>
+<h3>Catalan Numbers</h3>
+<blockquote>
+    In combinatorial mathematics, the Catalan numbers are a sequence of natural numbers that occur in various counting problems, often involving recursively defined objects. They are named after the French-Belgian mathematician Eugène Charles Catalan (1814–1894).
+    <a href="https://en.wikipedia.org/wiki/Catalan_number"> -Wikipedia</a>
+</blockquote>
+
+<pre>
+    const int MOD = ....
+const int MAX = ....
+int catalan[MAX];
+void init() {
+    catalan[0] = catalan[1] = 1;
+    for (int i=2; i<=n; i++) {
+        catalan[i] = 0;
+        for (int j=0; j < i; j++) {
+            catalan[i] += (catalan[j] * catalan[i-j-1]) % MOD;
+            if (catalan[i] >= MOD) {
+                catalan[i] -= MOD;
+            }
+        }
+    }
+}
+</pre>
 
 </body>
 
